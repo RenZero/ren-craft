@@ -1,0 +1,64 @@
+---
+export interface MetricBadge {
+  label: string;
+  value: string;
+}
+
+export interface Project {
+  title: string;
+  highlight: string;
+  techStack: string[];
+  metrics: MetricBadge[];
+  difficulty?: number; // 可選，1-5
+}
+
+export interface Props {
+  project: Project;
+  index?: number;
+}
+
+const { project, index = 0 } = Astro.props;
+---
+
+<article
+  id={`project-card-${index}`}
+  class="glass-card p-6 flex flex-col gap-4"
+  aria-label={`Project: ${project.title}`}
+>
+  <!-- Title -->
+  <h4 class="text-base font-bold text-white leading-snug">{project.title}</h4>
+
+  <!-- Highlight description -->
+  <p class="text-slate-400 text-sm leading-relaxed">{project.highlight}</p>
+
+  <!-- Metrics Badges -->
+  {project.metrics.length > 0 && (
+    <div class="flex flex-wrap gap-2" role="list" aria-label="Project metrics">
+      {project.metrics.map((m) => (
+        <span
+          role="listitem"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg
+                 bg-accent-500/10 border border-accent-500/20 text-accent-400 text-xs font-bold
+                 hover:bg-accent-500/20 transition-colors"
+        >
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+            <polyline points="17 6 23 6 23 12"/>
+          </svg>
+          {m.label}:&nbsp;<strong class="text-white">{m.value}</strong>
+        </span>
+      ))}
+    </div>
+  )}
+
+  <!-- Tech Stack tags -->
+  {project.techStack.length > 0 && (
+    <div class="flex flex-wrap gap-2 pt-1 border-t border-white/5">
+      {project.techStack.map((tag) => (
+        <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-brand-900/50 text-brand-300 border border-brand-700/30">
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
+</article>

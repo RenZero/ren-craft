@@ -1,0 +1,87 @@
+---
+import { readdirSync, existsSync } from 'fs';
+import { join } from 'path';
+import PhotoCard from './PhotoCard.astro';
+
+// 自動讀取 public/photos/ 內的所有圖片（build time）
+const photosDir = join(process.cwd(), 'public', 'photos');
+let photoFiles: string[] = [];
+try {
+  if (existsSync(photosDir)) {
+    photoFiles = readdirSync(photosDir)
+      .filter(f => /\.(jpg|jpeg|png|webp|avif|gif)$/i.test(f))
+      .sort();
+  }
+} catch {
+  photoFiles = [];
+}
+
+// 將檔名轉為易讀標題
+function filenameToTitle(filename: string): string {
+  return filename
+    .replace(/\.[^.]+$/, '')        // 移除副檔名
+    .replace(/[-_]/g, ' ')          // 底線/連字號換成空格
+    .replace(/\b\w/g, c => c.toUpperCase()); // 首字母大寫
+}
+---
+
+<section
+  id="photography"
+  class="section"
+  aria-label="Film photography gallery by Ren Chen"
+>
+  <div class="container mx-auto px-6">
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <p class="text-brand-400 text-sm font-semibold tracking-widest uppercase mb-3">Visual Stories</p>
+      <h2 class="text-4xl md:text-5xl font-bold text-white">底片攝影藝廊</h2>
+      <p class="text-slate-400 mt-4 max-w-xl mx-auto">
+        用 Leica M6 與底片記錄當下的光影——工程師視角下的另一種系統思維。
+      </p>
+      {photoFiles.length === 0 && (
+        <p class="inline-block mt-4 text-xs text-slate-600 border border-slate-700 rounded-full px-4 py-1.5">
+          將照片放入 <code class="text-slate-400">public/photos/</code> 即可自動顯示
+        </p>
+      )}
+    </div>
+
+    {photoFiles.length > 0 ? (
+      <!-- Masonry Grid：CSS Columns 輕量瀑布流 -->
+      <div class="masonry-grid" role="list" aria-label="Film photography gallery">
+        {photoFiles.map((filename) => (
+          <div role="listitem" class="masonry-item">
+            <PhotoCard
+              src={`/photos/${filename}`}
+              alt={`Leica M6 Film Photography by Ren Chen — ${filenameToTitle(filename)}`}
+              title={filenameToTitle(filename)}
+            />
+          </div>
+        ))}
+      </div>
+    ) : (
+      <!-- Empty state -->
+      <div class="flex flex-col items-center justify-center py-32 text-center glass-card mx-auto max-w-md">
+        <div class="text-6xl mb-6" aria-hidden="true">📷</div>
+        <h3 class="text-xl font-semibold text-white mb-3">尚無照片</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">
+          將 JPG / PNG / WebP 照片放入<br/>
+          <code class="text-slate-300 bg-white/5 px-2 py-0.5 rounded mt-1 inline-block">public/photos/</code><br/>
+          重新 build 後即自動顯示
+        </p>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .masonry-grid {
+    columns: 1;
+    column-gap: 1rem;
+  }
+  @media (min-width: 640px)  { .masonry-grid { columns: 2; } }
+  @media (min-width: 1024px) { .masonry-grid { columns: 4; } }
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+</style>

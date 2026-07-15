@@ -1,0 +1,98 @@
+---
+const skillDomains = [
+  {
+    id: "backend",
+    icon: "🏗️",
+    title: "系統架構與後端研發",
+    subtitle: "System Architecture & Backend",
+    color: "from-brand-500 to-brand-700",
+    accentColor: "brand-400",
+    tags: [
+      "Java Spring Boot", "Python FastAPI", "Microservices", "RESTful API",
+      "System Design", "High Concurrency", "gRPC", "Event-Driven Architecture",
+      "PostgreSQL", "Redis", "Apache Kafka", "Domain-Driven Design",
+    ],
+  },
+  {
+    id: "devops",
+    icon: "☁️",
+    title: "雲原生基礎建設與 DevOps",
+    subtitle: "Cloud-Native & DevOps Infrastructure",
+    color: "from-sky-500 to-sky-700",
+    accentColor: "sky-400",
+    tags: [
+      "Kubernetes", "Docker", "CI/CD Pipelines", "Jenkins Pipeline",
+      "GitLab Flow", "GitHub Actions", "Terraform", "AWS / GCP",
+      "Service Mesh", "Observability", "Prometheus", "Grafana",
+    ],
+  },
+  {
+    id: "data-ai",
+    icon: "🤖",
+    title: "資料工程與分散式運算",
+    subtitle: "Data Engineering & AI / MLOps",
+    color: "from-accent-500 to-accent-700",
+    accentColor: "accent-400",
+    tags: [
+      "Apache Spark", "Apache Airflow", "Data Pipeline", "ETL",
+      "TimescaleDB", "MLOps", "MLflow", "LLM Deployment",
+      "AI Automation", "Feature Engineering", "Model Serving", "Vector DB",
+    ],
+  },
+];
+---
+
+<section
+  id="skills"
+  class="section"
+  aria-label="Core skills and technical expertise"
+>
+  <div class="container mx-auto px-6">
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <p class="text-brand-400 text-sm font-semibold tracking-widest uppercase mb-3">Technical Expertise</p>
+      <h2 class="text-4xl md:text-5xl font-bold text-white">Core Skills</h2>
+      <p class="text-slate-400 mt-4 max-w-xl mx-auto">
+        三大技術領域深度積累，從底層架構到 AI 推論落地一手包辦。
+      </p>
+    </div>
+
+    <!-- Skill domains grid -->
+    <div class="grid md:grid-cols-3 gap-6">
+      {skillDomains.map((domain) => (
+        <article
+          id={`skill-domain-${domain.id}`}
+          class="glass-card p-8 flex flex-col gap-6"
+          aria-label={domain.title}
+        >
+          <!-- Domain header -->
+          <div>
+            <div
+              class={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${domain.color} text-2xl mb-4 shadow-lg`}
+              aria-hidden="true"
+            >
+              {domain.icon}
+            </div>
+            <h3 class="text-xl font-bold text-white leading-snug">{domain.title}</h3>
+            <p class="text-slate-500 text-sm mt-1">{domain.subtitle}</p>
+          </div>
+
+          <!-- Tech tags -->
+          <div class="flex flex-wrap gap-2" role="list" aria-label={`${domain.title} technologies`}>
+            {domain.tags.map((tag) => (
+              <span
+                role="listitem"
+                class="px-3 py-1 rounded-full text-xs font-medium
+                       bg-white/5 border border-white/10 text-slate-300
+                       hover:border-brand-400/40 hover:text-white hover:bg-brand-900/30
+                       transition-all duration-200 cursor-default"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

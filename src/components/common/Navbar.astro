@@ -1,0 +1,135 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: "/",            label: "關於我"   },
+  { href: "/experience",  label: "工作經歷" },
+  { href: "/skills",      label: "技能專長" },
+  { href: "/photography", label: "攝影藝廊" },
+  { href: "/contact",     label: "聯絡我"   },
+];
+
+function isActive(href: string) {
+  if (href === "/") return currentPath === "/";
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+  <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Logo / Name -->
+    <a href="/" class="text-lg font-bold tracking-tight group" aria-label="Ren Chen — Home">
+      <span class="gradient-text">Ren Chen</span>
+      <span class="text-slate-500 font-light ml-1 text-sm group-hover:text-brand-400 transition-colors">/厚任</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav aria-label="Primary navigation">
+      <ul class="hidden md:flex gap-8 list-none">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class={`text-sm font-medium transition-colors duration-200 relative
+                     after:absolute after:bottom-[-2px] after:left-0 after:h-[2px]
+                     after:bg-brand-400 after:transition-all after:duration-300
+                     ${isActive(link.href)
+                       ? 'text-white after:w-full'
+                       : 'text-slate-400 hover:text-white after:w-0 hover:after:w-full'
+                     }`}
+              aria-current={isActive(link.href) ? "page" : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- CTA Button -->
+    <a
+      href="/contact"
+      id="nav-cta"
+      class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg
+             bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium
+             transition-all duration-200 hover:shadow-lg hover:shadow-brand-600/30"
+    >
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+        <polyline points="22,6 12,13 2,6"/>
+      </svg>
+      聯絡我
+    </a>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden text-slate-400 hover:text-white transition-colors"
+      aria-label="Toggle mobile menu"
+      aria-expanded="false"
+    >
+      <svg id="menu-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg id="menu-icon-close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden glass-card mx-4 mb-4 overflow-hidden"
+    style="border-radius: 12px;"
+  >
+    <nav aria-label="Mobile navigation">
+      <ul class="flex flex-col list-none py-2">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class={`block px-6 py-3 text-sm transition-colors
+                     ${isActive(link.href)
+                       ? 'text-white bg-white/5 border-l-2 border-brand-400'
+                       : 'text-slate-300 hover:text-white hover:bg-white/5'
+                     }`}
+              aria-current={isActive(link.href) ? "page" : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+        <li class="px-4 py-3">
+          <a href="/contact" class="block text-center py-2.5 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-colors">
+            聯絡我
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.add('bg-surface-900/80', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+    } else {
+      navbar?.classList.remove('bg-surface-900/80', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+    }
+  });
+
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden', !isOpen);
+    iconClose?.classList.toggle('hidden', isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

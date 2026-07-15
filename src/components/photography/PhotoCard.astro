@@ -1,0 +1,32 @@
+---
+export interface Props {
+  src: string;
+  alt: string;
+  title: string;
+}
+
+const { src, alt, title } = Astro.props;
+---
+
+<article
+  class="photo-card relative group overflow-hidden rounded-xl cursor-zoom-in"
+  aria-label={title}
+>
+  <img
+    src={src}
+    alt={alt}
+    loading="lazy"
+    decoding="async"
+    class="w-full h-auto object-cover block transition-transform duration-500 group-hover:scale-105"
+  />
+
+  <!-- Title overlay on hover -->
+  <div
+    class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent
+           opacity-0 group-hover:opacity-100 transition-opacity duration-300
+           flex items-end p-4"
+    aria-hidden="true"
+  >
+    <p class="text-white text-sm font-semibold drop-shadow">{title}</p>
+  </div>
+</article>

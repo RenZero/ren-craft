@@ -1,0 +1,77 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title,
+  description = "Ren Chen (厚任) — Software Architect & Tech Lead with 13+ years of backend & cloud-native expertise. Specializing in microservices, data engineering, MLOps, and DevOps infrastructure.",
+  ogImage = "/og-image.jpg",
+  canonicalURL = Astro.url.href,
+} = Astro.props;
+
+const siteTitle = title === "Home"
+  ? "Ren Chen | Tech Lead & Software Architect"
+  : `${title} | Ren Chen`;
+---
+
+<!-- Primary Meta -->
+<title>{siteTitle}</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content={description} />
+<meta name="keywords" content="Tech Lead, Software Architect, Technical Lead, Technical Manager, Team Management, Code Review, Java Spring Boot, Python backend, RESTful API, System Architecture, Microservices, POI Database, High Concurrency, Docker, Kubernetes, CI/CD, Jenkins Pipeline, GitLab Flow, DevOps infrastructure, Data Pipeline, Apache Spark, ETL, MLOps, LLM deployment, AI automation, n8n Server, AI Agent, Auto-tagging" />
+<meta name="author" content="Ren Chen (厚任)" />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={siteTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(ogImage, Astro.site)} />
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={siteTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+<!-- JSON-LD Structured Data (Person) —— 更新至完整履歷資料 -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ren Chen (陳厚任)",
+  "jobTitle": "Software Architect / Technical Lead",
+  "email": "a19850728@gmail.com",
+  "url": "https://renchen.dev",
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "Chinese Culture University (PCCU)",
+    "department": "Department of Computer Science"
+  },
+  "knowsLanguage": ["Chinese", "English", "German"],
+  "knowsAbout": [
+    "Software Architecture",
+    "Java Spring Boot",
+    "Python Backend Development",
+    "Kubernetes & Docker",
+    "DevOps & CI/CD",
+    "Data Engineering",
+    "Apache Spark",
+    "ETL",
+    "MLOps",
+    "AI Implementations",
+    "Microservices",
+    "System Design",
+    "n8n Low-Code Automation",
+    "LLM Deployment",
+    "AI Agent"
+  ]
+})} />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
