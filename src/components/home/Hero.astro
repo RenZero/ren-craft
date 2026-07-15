@@ -10,78 +10,74 @@ const metrics = [
 
 <section
   id="about"
-  class="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24"
+  class="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 border-b-[3px] border-neo-black bg-neo-bg"
   aria-label="Hero — Personal identity and core metrics"
 >
-  <!-- Background decorative blobs -->
+  <!-- Background grid pattern -->
   <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-    <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-brand-600/20 blur-3xl"></div>
-    <div class="absolute top-1/2 -left-40 w-80 h-80 rounded-full bg-accent-500/10 blur-3xl"></div>
-    <div class="absolute bottom-20 right-1/4 w-64 h-64 rounded-full bg-brand-800/30 blur-2xl"></div>
-    <!-- Grid pattern -->
     <div
-      class="absolute inset-0 opacity-[0.03]"
-      style="background-image: linear-gradient(rgba(99,102,241,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.5) 1px, transparent 1px); background-size: 60px 60px;"
+      class="absolute inset-0 opacity-[0.1]"
+      style="background-image: linear-gradient(#111 2px, transparent 2px), linear-gradient(90deg, #111 2px, transparent 2px); background-size: 60px 60px;"
     ></div>
   </div>
 
-  <div class="w-full relative z-10">
+  <div class="w-full relative z-10 py-12">
     <!-- Status badge -->
-    <div class="flex justify-center mb-10 animate-fade-in-up" style="animation-delay: 0.1s; opacity: 0;">
-      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-500/10 border border-accent-500/30 text-accent-400 text-sm font-medium">
-        <span class="w-2 h-2 rounded-full bg-accent-400 animate-pulse"></span>
+    <div class="flex justify-center mb-10">
+      <span class="inline-flex items-center gap-2 px-4 py-2 bg-neo-success border-[3px] border-neo-black text-neo-black text-sm font-bold shadow-[4px_4px_0px_0px_#111]">
+        <span class="w-2 h-2 bg-neo-black border border-neo-black animate-pulse"></span>
         Available for Senior / Lead positions
       </span>
     </div>
 
+    <!-- Profile Photo -->
+    <div class="flex justify-center mb-8">
+      <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-[4px] border-neo-black shadow-[8px_8px_0px_0px_#111] overflow-hidden bg-neo-primary">
+        <img src="/images/RenChen.jpg" alt="Ren Chen Photo" class="w-full h-full object-cover" />
+      </div>
+    </div>
+
     <!-- Main headline — full-width centered -->
     <h1
-      class="text-center font-black tracking-tight leading-[1.05] mb-8 animate-fade-in-up px-4"
-      style="animation-delay: 0.2s; opacity: 0;"
+      class="text-center font-black tracking-tight leading-[1.05] mb-8 px-4"
     >
-      <span class="block text-white text-6xl md:text-8xl lg:text-9xl">Ren Chen</span>
-      <span class="block gradient-text text-4xl md:text-6xl lg:text-7xl mt-3 whitespace-nowrap">
+      <span class="block text-neo-black text-6xl md:text-8xl lg:text-9xl uppercase">Ren Chen</span>
+      <span class="inline-block bg-neo-secondary border-[4px] border-neo-black text-neo-black px-6 py-2 mt-6 text-3xl md:text-5xl lg:text-6xl whitespace-nowrap shadow-[8px_8px_0px_0px_#111] transform -rotate-1">
         Tech Lead &amp; Software Architect
       </span>
     </h1>
 
     <!-- Sub headline — full-width centered -->
     <p
-      class="text-center text-lg md:text-xl text-slate-400 px-6 max-w-3xl mx-auto leading-relaxed mb-12 animate-fade-in-up"
-      style="animation-delay: 0.35s; opacity: 0;"
+      class="text-center text-lg md:text-xl text-neo-black font-bold px-6 max-w-3xl mx-auto leading-relaxed mb-12 bg-neo-white border-[4px] border-neo-black p-6 shadow-[6px_6px_0px_0px_#111] transform rotate-1"
     >
       13+ 年後端與系統架構開發經驗，專精
-      <strong class="text-slate-200">微服務設計</strong>、
-      <strong class="text-slate-200">大規模資料處理</strong> 與
-      <strong class="text-slate-200">DevOps 基礎建設</strong>，
+      <strong class="bg-neo-primary px-1 border-[2px] border-neo-black">微服務設計</strong>、
+      <strong class="bg-neo-accent px-1 border-[2px] border-neo-black">大規模資料處理</strong> 與
+      <strong class="bg-neo-success px-1 border-[2px] border-neo-black">DevOps 基礎建設</strong>，
       致力於打造高可用、可擴展的企業級系統。
     </p>
 
     <!-- CTA Buttons — centered -->
     <div
-      class="flex flex-wrap justify-center gap-4 mb-20 animate-fade-in-up"
-      style="animation-delay: 0.5s; opacity: 0;"
+      class="flex flex-wrap justify-center gap-6 mb-20"
     >
       <a
         href="/experience"
         id="hero-cta-primary"
-        class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500
-               text-white font-semibold transition-all duration-300
-               hover:shadow-xl hover:shadow-brand-600/30 hover:-translate-y-0.5"
+        class="neo-btn text-lg py-4 px-8 bg-neo-primary"
       >
         查看完整履歷
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="ml-2">
           <polyline points="9 18 15 12 9 6"/>
         </svg>
       </a>
       <a
         href="/contact"
         id="hero-cta-secondary"
-        class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-white/10
-               text-slate-300 hover:text-white hover:border-brand-400/50 font-semibold
-               transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/5"
+        class="neo-btn text-lg py-4 px-8 bg-neo-white"
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mr-2">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
           <polyline points="22,6 12,13 2,6"/>
         </svg>
@@ -91,27 +87,20 @@ const metrics = [
 
     <!-- Metrics Banner — full-width grid -->
     <div
-      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 px-6 max-w-5xl mx-auto animate-fade-in-up"
-      style="animation-delay: 0.65s; opacity: 0;"
+      class="grid grid-cols-2 md:grid-cols-5 gap-6 px-6 max-w-5xl mx-auto"
       role="region"
       aria-label="Quantified achievements"
     >
       {metrics.map((m) => (
-        <div class="glass-card p-5 text-center group">
-          <div class="text-2xl mb-2" aria-hidden="true">{m.icon}</div>
-          <div class="text-3xl font-black text-white leading-none">
-            {m.value}<span class="text-brand-400 text-2xl">{m.unit}</span>
+        <div class="neo-card p-6 text-center flex flex-col justify-center bg-neo-white">
+          <div class="text-4xl mb-3" aria-hidden="true">{m.icon}</div>
+          <div class="text-4xl font-black text-neo-black leading-none">
+            {m.value}<span class="text-xl ml-1">{m.unit}</span>
           </div>
-          <div class="text-slate-500 text-xs mt-2 font-medium">{m.label}</div>
+          <div class="text-neo-black text-sm mt-3 font-bold uppercase">{m.label}</div>
         </div>
       ))}
     </div>
   </div>
-
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-30" aria-hidden="true">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="6 9 12 15 18 9"/>
-    </svg>
-  </div>
 </section>
+

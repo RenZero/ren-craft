@@ -5,25 +5,24 @@ export const acerExperience: Experience = {
   company: "宏碁股份有限公司 (駐點)",
   title: "Senior Backend Engineer",
   period: "2019.03 - 2019.10",
-  location: "台灣・新北",
-  summary: "參與 Acer Global ERP 後端管理系統之架構重構，導入現代化技術棧與運維自動化流程。",
+  summary: "",
   details: [
     {
-      category: "大型企業 ERP 系統架構重構",
+      category: "ERP 系統架構重構",
       items: [
-        "將舊有系統從 JBoss Seam 全數翻修重寫為現代化 Java MVC 架構，大幅提升系統執行效率與可維護性。",
+        "參與 Acer Global ERP 後端系統改版專案，將舊有 JBoss Seam 框架重寫為現代化 Java MVC 架構，解決技術債並提升系統可維護性與執行效率。",
       ],
     },
     {
-      category: "技術資產沉澱",
+      category: "工程文件與 Code Review",
       items: [
-        "負責編寫完整的系統重構技術開發文件，並執行團隊代碼審查 (Code Review) 以確保改版後的代碼質量。",
+        "撰寫系統重構期間之技術開發與 API 文件，並執行團隊 Code Review 機制，確保架構轉換過程中的程式碼品質與一致性。",
       ],
     },
     {
-      category: "自動化運維",
+      category: "自動化部署導入",
       items: [
-        "參與 CI/CD 自動化部署流程之建置與調優。",
+        "參與 CI/CD Pipeline 的建置與調優，協助團隊建立標準化與自動化的交付流程。",
       ],
     },
   ],

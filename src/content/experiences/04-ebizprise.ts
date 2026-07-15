@@ -2,28 +2,27 @@ import type { Experience } from '../models/experience.model';
 
 export const ebizpriseExperience: Experience = {
   id: "ebizprise",
-  company: "聯合通商科技 (天津) 有限公司 eBizprise Inc",
+  company: "联合通商科技(天津)有限公司 eBizprise Inc",
   title: "Senior Full Stack / Backend Engineer",
   period: "2017.03 - 2018.11",
-  location: "中國・天津",
-  summary: "負責高可用性微服務架構管理與前端現代化轉型。",
+  summary: "",
   details: [
     {
-      category: "微服務架構開發與維護",
+      category: "微服務後端開發",
       items: [
-        "使用 Java Spring Boot 開發高可用性、高效能與低延遲的 RESTful API。",
+        "基於 Spring Boot (Java) 開發與維護微服務架構，負責核心 RESTful API 設計與實作，確保系統服務穩定運行。",
       ],
     },
     {
-      category: "前端現代化轉型",
+      category: "前端架構升級",
       items: [
-        "負責前端系統開發，將核心介面導入 Vue.js 框架，大幅提升使用者互動體驗。",
+        "使用 Vue.js 框架進行前端系統重構與開發，推動 UI 介面元件化，提升系統互動性與前後端協作開發效率。",
       ],
     },
     {
-      category: "軟體工程最佳實踐",
+      category: "自動化測試與 CI/CD",
       items: [
-        "導入 Jenkins CI/CD 自動化部署流程，編寫完整系統開發文件，並實作端到端自動化測試，確保系統交付質量。",
+        "建立Jenkins 建置 CI/CD Pipeline 實現自動化部署流程。撰寫系統技術文件並實作 End-to-End 自動化測試，確保軟體交付品質。",
       ],
     },
   ],

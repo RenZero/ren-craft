@@ -28,15 +28,17 @@ const companyEmoji: Record<string, string> = {
 
 <section
   id="experience"
-  class="section"
+  class="section bg-neo-bg"
   aria-label="Work experience and career timeline"
 >
   <div class="container mx-auto px-6">
     <!-- Section header -->
     <div class="text-center mb-16">
-      <p class="text-brand-400 text-sm font-semibold tracking-widest uppercase mb-3">Career Journey</p>
-      <h2 class="text-4xl md:text-5xl font-bold text-white">工作經歷</h2>
-      <p class="text-slate-400 mt-4 max-w-xl mx-auto">
+      <div class="inline-block bg-neo-accent border-[3px] border-neo-black px-4 py-2 mb-6 shadow-[4px_4px_0px_0px_#111] transform rotate-1">
+        <p class="text-neo-black text-sm font-black tracking-widest uppercase">Career Journey</p>
+      </div>
+      <h2 class="text-4xl md:text-6xl font-black text-neo-black uppercase">工作經歷</h2>
+      <p class="text-neo-black font-bold mt-6 max-w-xl mx-auto bg-neo-white border-[3px] border-neo-black p-4 shadow-[4px_4px_0px_0px_#111]">
         13+ 年橫跨研究院、外商、新創到大型企業的技術積累，從工程師到技術長的完整成長軌跡。
       </p>
     </div>
@@ -47,7 +49,7 @@ const companyEmoji: Record<string, string> = {
     <div class="relative mb-24">
       <!-- Vertical line -->
       <div
-        class="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-500 via-brand-600/30 to-transparent"
+        class="absolute left-8 md:left-1/2 top-0 bottom-0 w-[4px] bg-neo-black ml-[-2px]"
         aria-hidden="true"
       ></div>
 
@@ -59,14 +61,14 @@ const companyEmoji: Record<string, string> = {
           >
             <!-- Timeline dot -->
             <div
-              class="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full
-                     bg-brand-500 border-4 border-surface-900 shadow-lg shadow-brand-500/50 z-10"
+              class="absolute left-8 md:left-1/2 -translate-x-1/2 w-6 h-6 rounded-none
+                     bg-neo-primary border-[3px] border-neo-black shadow-[2px_2px_0px_0px_#111] z-10"
               aria-hidden="true"
             ></div>
 
             <!-- Date pill (desktop) -->
             <div class={`hidden md:flex w-1/2 ${expIdx % 2 === 0 ? 'justify-end pr-12' : 'justify-start pl-12'} items-start pt-1`}>
-              <span class="inline-flex items-center px-4 py-1.5 rounded-full border border-brand-500/30 bg-brand-900/40 text-brand-300 text-sm font-medium">
+              <span class="inline-flex items-center px-4 py-2 border-[3px] border-neo-black bg-neo-secondary text-neo-black font-black uppercase shadow-[2px_2px_0px_0px_#111]">
                 {exp.period}
               </span>
             </div>
@@ -75,26 +77,26 @@ const companyEmoji: Record<string, string> = {
             <div class={`ml-16 md:ml-0 md:w-1/2 ${expIdx % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}>
 
               <!-- Company header -->
-              <div class="glass-card p-6 mb-4">
+              <div class="neo-card p-6 mb-6 bg-neo-white">
                 <div class="flex items-start gap-4">
                   <div
-                    class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800
-                           flex items-center justify-center text-2xl shrink-0 shadow-lg"
+                    class="w-14 h-14 bg-neo-success border-[3px] border-neo-black
+                           flex items-center justify-center text-3xl shrink-0 shadow-[4px_4px_0px_0px_#111]"
                     aria-hidden="true"
                   >
                     {companyEmoji[exp.id] ?? '🏢'}
                   </div>
                   <div class="flex-1 min-w-0">
-                    <h3 class="text-xl font-bold text-white">{exp.company}</h3>
+                    <h3 class="text-2xl font-black text-neo-black uppercase">{exp.company}</h3>
                     {exp.department && (
-                      <p class="text-slate-500 text-xs mt-0.5">{exp.department}</p>
+                      <p class="text-neo-black font-bold text-sm mt-1">{exp.department}</p>
                     )}
-                    <p class="text-brand-400 font-medium text-sm mt-1">{exp.title}</p>
-                    <div class="flex flex-wrap items-center gap-3 mt-2">
-                      <span class="text-slate-500 text-xs md:hidden">{exp.period}</span>
+                    <p class="text-neo-black font-black text-base mt-2 px-2 py-1 bg-neo-primary border-[2px] border-neo-black inline-block shadow-[2px_2px_0px_0px_#111]">{exp.title}</p>
+                    <div class="flex flex-wrap items-center gap-3 mt-3">
+                      <span class="text-neo-black font-bold text-xs md:hidden bg-neo-secondary px-2 py-1 border-[2px] border-neo-black">{exp.period}</span>
                       {exp.location && (
-                        <span class="text-slate-500 text-xs flex items-center gap-1">
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <span class="text-neo-black font-bold text-xs flex items-center gap-1 border-[2px] border-neo-black px-2 py-1">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                             <circle cx="12" cy="10" r="3"/>
                           </svg>
@@ -102,35 +104,37 @@ const companyEmoji: Record<string, string> = {
                         </span>
                       )}
                     </div>
-                    <p class="text-slate-400 text-sm mt-3 leading-relaxed">{exp.summary}</p>
+                    {exp.summary && (
+                      <p class="text-neo-black font-bold text-sm mt-4 leading-relaxed p-3 border-[2px] border-neo-black bg-neo-bg">{exp.summary}</p>
+                    )}
                   </div>
                 </div>
               </div>
 
               <!-- Management (TAO Info) -->
               {exp.management && (
-                <div class="glass-card p-6 mb-4">
-                  <h4 class="text-sm font-semibold text-slate-300 mb-4 flex items-center gap-2">
-                    <span class="w-5 h-5 rounded bg-brand-600/30 flex items-center justify-center text-xs" aria-hidden="true">👥</span>
+                <div class="neo-card p-6 mb-6 bg-neo-white">
+                  <h4 class="text-base font-black text-neo-black mb-4 flex items-center gap-2 uppercase pb-2 border-b-[3px] border-neo-black">
+                    <span class="w-8 h-8 bg-neo-primary border-[2px] border-neo-black flex items-center justify-center text-base shadow-[2px_2px_0px_0px_#111]" aria-hidden="true">👥</span>
                     管理協作維度 (Management)
                   </h4>
-                  <div class="space-y-3">
+                  <div class="space-y-4">
                     {exp.management.leadership && (
-                      <div>
-                        <p class="text-xs text-brand-400 font-semibold mb-1">團隊領導</p>
-                        <p class="text-slate-400 text-sm leading-relaxed">{exp.management.leadership}</p>
+                      <div class="border-l-[4px] border-neo-black pl-3">
+                        <p class="text-sm text-neo-black font-black uppercase mb-1">團隊領導</p>
+                        <p class="text-neo-black font-bold text-sm leading-relaxed">{exp.management.leadership}</p>
                       </div>
                     )}
                     {exp.management.clientSLA && (
-                      <div>
-                        <p class="text-xs text-brand-400 font-semibold mb-1">客戶 SLA</p>
-                        <p class="text-slate-400 text-sm leading-relaxed">{exp.management.clientSLA}</p>
+                      <div class="border-l-[4px] border-neo-black pl-3">
+                        <p class="text-sm text-neo-black font-black uppercase mb-1">客戶 SLA</p>
+                        <p class="text-neo-black font-bold text-sm leading-relaxed">{exp.management.clientSLA}</p>
                       </div>
                     )}
                     {exp.management.devops && (
-                      <div>
-                        <p class="text-xs text-brand-400 font-semibold mb-1">DevOps 推行</p>
-                        <p class="text-slate-400 text-sm leading-relaxed">{exp.management.devops}</p>
+                      <div class="border-l-[4px] border-neo-black pl-3">
+                        <p class="text-sm text-neo-black font-black uppercase mb-1">DevOps 推行</p>
+                        <p class="text-neo-black font-bold text-sm leading-relaxed">{exp.management.devops}</p>
                       </div>
                     )}
                   </div>
@@ -139,9 +143,9 @@ const companyEmoji: Record<string, string> = {
 
               <!-- Projects (TAO Info / settour) -->
               {exp.projects && exp.projects.length > 0 && (
-                <div class="mb-4">
-                  <h4 class="text-sm font-semibold text-slate-300 mb-4 flex items-center gap-2">
-                    <span class="w-5 h-5 rounded bg-accent-500/20 flex items-center justify-center text-xs" aria-hidden="true">🚀</span>
+                <div class="mb-6">
+                  <h4 class="text-base font-black text-neo-black mb-4 flex items-center gap-2 uppercase">
+                    <span class="w-8 h-8 bg-neo-accent border-[2px] border-neo-black flex items-center justify-center text-base shadow-[2px_2px_0px_0px_#111]" aria-hidden="true">🚀</span>
                     產品研發實績 (Projects)
                   </h4>
                   <div class="flex flex-col gap-4">
@@ -154,17 +158,17 @@ const companyEmoji: Record<string, string> = {
 
               <!-- Details 條列（acer / ebizprise / sinica）-->
               {exp.details && exp.details.length > 0 && (
-                <div class="glass-card p-6">
+                <div class="neo-card p-6 bg-neo-white">
                   <div class="space-y-5">
                     {exp.details.map((section) => (
                       <div>
-                        <p class="text-xs text-brand-400 font-semibold mb-2 flex items-center gap-1.5">
+                        <p class="text-sm text-neo-black font-black uppercase mb-2 flex items-center gap-2 pb-1 border-b-[3px] border-neo-black">
                           <span aria-hidden="true">▸</span>
                           {section.category}
                         </p>
                         <ul class="space-y-2 ml-4">
                           {section.items.map((item) => (
-                            <li class="text-slate-400 text-sm leading-relaxed list-disc list-outside ml-2">
+                            <li class="text-neo-black font-bold text-sm leading-relaxed list-disc list-outside ml-2">
                               {item}
                             </li>
                           ))}
@@ -186,32 +190,34 @@ const companyEmoji: Record<string, string> = {
          ═══════════════════════════════════════════ -->
     <div class="mt-8">
       <div class="text-center mb-10">
-        <p class="text-accent-400 text-sm font-semibold tracking-widest uppercase mb-2">Life & Culture</p>
-        <h3 class="text-2xl md:text-3xl font-bold text-white">海外工作假期</h3>
-        <p class="text-slate-500 text-sm mt-2">跨文化生活歷練與外語能力的實戰積累</p>
+        <div class="inline-block bg-neo-primary border-[3px] border-neo-black px-4 py-2 mb-4 shadow-[4px_4px_0px_0px_#111] transform -rotate-1">
+          <p class="text-neo-black text-sm font-black tracking-widest uppercase">Life & Culture</p>
+        </div>
+        <h3 class="text-3xl md:text-4xl font-black text-neo-black uppercase">海外工作假期</h3>
+        <p class="text-neo-black font-bold text-sm mt-4">跨文化生活歷練與外語能力的實戰積累</p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
         {workingHolidayExperiences.map((wh) => (
           <article
             id={`wh-${wh.id}`}
-            class="glass-card p-6"
+            class="neo-card p-6 bg-neo-white"
             aria-label={`Working Holiday: ${wh.country}`}
           >
-            <div class="flex items-start gap-3 mb-4">
-              <span class="text-2xl" aria-hidden="true">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="text-4xl bg-neo-bg border-[3px] border-neo-black p-2 shadow-[2px_2px_0px_0px_#111]" aria-hidden="true">
                 {wh.id === 'wh-germany' ? '🇩🇪' : '🇺🇸'}
               </span>
               <div>
-                <h4 class="text-white font-bold">{wh.country}</h4>
-                <p class="text-brand-400 text-sm">{wh.title} · {wh.company}</p>
-                <p class="text-slate-600 text-xs mt-0.5">{wh.period}</p>
+                <h4 class="text-neo-black font-black text-xl uppercase">{wh.country}</h4>
+                <p class="text-neo-black font-bold text-sm bg-neo-accent border-[2px] border-neo-black px-2 mt-1 shadow-[2px_2px_0px_0px_#111] inline-block">{wh.title} · {wh.company}</p>
+                <p class="text-neo-black font-bold text-xs mt-2">{wh.period}</p>
               </div>
             </div>
-            <ul class="space-y-2">
+            <ul class="space-y-2 mt-4 pt-4 border-t-[3px] border-neo-black">
               {wh.achievements.map((item) => (
-                <li class="flex items-start gap-2 text-slate-400 text-sm leading-relaxed">
-                  <span class="text-accent-400 mt-0.5 shrink-0" aria-hidden="true">✓</span>
+                <li class="flex items-start gap-2 text-neo-black font-bold text-sm leading-relaxed">
+                  <span class="text-neo-black mt-0.5 shrink-0" aria-hidden="true">✓</span>
                   {item}
                 </li>
               ))}

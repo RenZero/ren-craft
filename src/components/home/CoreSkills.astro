@@ -4,90 +4,112 @@ const skillDomains = [
     id: "backend",
     icon: "🏗️",
     title: "系統架構與後端研發",
-    subtitle: "System Architecture & Backend",
-    color: "from-brand-500 to-brand-700",
-    accentColor: "brand-400",
-    tags: [
-      "Java Spring Boot", "Python FastAPI", "Microservices", "RESTful API",
-      "System Design", "High Concurrency", "gRPC", "Event-Driven Architecture",
-      "PostgreSQL", "Redis", "Apache Kafka", "Domain-Driven Design",
-    ],
+    subtitle: "Backend & Architecture",
+    description: "精通 Java Spring Boot、Python 後端開發。具備多次大型核心系統重構經驗，擅長設計高內聚、低耦合的微服務架構與高可用性 RESTful API。",
+    color: "bg-neo-primary",
+    tags: ["Java", "Spring", "Python"],
   },
   {
     id: "devops",
     icon: "☁️",
     title: "雲原生基礎建設與 DevOps",
-    subtitle: "Cloud-Native & DevOps Infrastructure",
-    color: "from-sky-500 to-sky-700",
-    accentColor: "sky-400",
-    tags: [
-      "Kubernetes", "Docker", "CI/CD Pipelines", "Jenkins Pipeline",
-      "GitLab Flow", "GitHub Actions", "Terraform", "AWS / GCP",
-      "Service Mesh", "Observability", "Prometheus", "Grafana",
-    ],
+    subtitle: "Cloud Native & DevOps",
+    description: "熟悉以 GitLab 為核心的 Git Flow 版控與多分支管理策略；擅長部署 Jenkins Pipeline 全自動化 CI/CD 工作流。具備 Docker、Docker Compose 及 Kubernetes 容器編排與集群管理實戰經驗。",
+    color: "bg-neo-accent",
+    tags: ["Kubernetes", "Jenkins", "CI/CD"],
   },
   {
-    id: "data-ai",
-    icon: "🤖",
+    id: "data-engineering",
+    icon: "📊",
     title: "資料工程與分散式運算",
-    subtitle: "Data Engineering & AI / MLOps",
-    color: "from-accent-500 to-accent-700",
-    accentColor: "accent-400",
-    tags: [
-      "Apache Spark", "Apache Airflow", "Data Pipeline", "ETL",
-      "TimescaleDB", "MLOps", "MLflow", "LLM Deployment",
-      "AI Automation", "Feature Engineering", "Model Serving", "Vector DB",
-    ],
+    subtitle: "Data Engineering & Big Data",
+    description: "具備中大型資料清洗與 ETL 流程規劃硬實力。熟悉 Apache Spark 大規模資料運算、Schema 設計、異質資料整合與資料儲存規格優化。",
+    color: "bg-neo-success",
+    tags: ["Spark", "ETL"],
   },
+  {
+    id: "ai-implementation",
+    icon: "🤖",
+    title: "AI 技術落地與自動化工程",
+    subtitle: "AI Implementation",
+    description: "具備地端大型語言模型部署、效能基準測試與 AI 自動化貼標分類實績。擅長自建 n8n 系統架構與 AI Agent，有效分流並釋放後端系統負載。",
+    color: "bg-neo-secondary",
+    tags: ["LLM", "Prompt", "AI"],
+  },
+  {
+    id: "leadership",
+    icon: "🎯",
+    title: "技術領導力與代碼審查",
+    subtitle: "Technical Leadership",
+    description: "有著 5-8 人研發團隊管理與變革管理經驗。主導 Code Review 機制與 API-First 設計規範以確保代碼質量，擅長將繁複的商業痛點與業務需求轉化為高可擴展性的技術方案。",
+    color: "bg-neo-primary",
+    tags: ["Leadership", "Code Review", "API-First"],
+  },
+  {
+    id: "agile",
+    icon: "🏃",
+    title: "風險管理與敏捷開發",
+    subtitle: "Risk Management & Agile",
+    description: "熟悉 Scrum/Agile 敏捷開發流程，具備卓越的問題解決與應變能力。擅長在技術研發中識別、控管潛在風險，並在變動的業務環境中迅速調整技術策略，確保系統如期如質交付。",
+    color: "bg-neo-accent",
+    tags: ["Scrum"],
+  }
 ];
 ---
 
 <section
   id="skills"
-  class="section"
+  class="section bg-neo-bg"
   aria-label="Core skills and technical expertise"
 >
   <div class="container mx-auto px-6">
     <!-- Section header -->
     <div class="text-center mb-16">
-      <p class="text-brand-400 text-sm font-semibold tracking-widest uppercase mb-3">Technical Expertise</p>
-      <h2 class="text-4xl md:text-5xl font-bold text-white">Core Skills</h2>
-      <p class="text-slate-400 mt-4 max-w-xl mx-auto">
-        三大技術領域深度積累，從底層架構到 AI 推論落地一手包辦。
+      <div class="inline-block bg-neo-secondary border-[3px] border-neo-black px-4 py-2 mb-6 shadow-[4px_4px_0px_0px_#111] transform -rotate-2">
+        <p class="text-neo-black text-sm font-black tracking-widest uppercase">Technical Expertise</p>
+      </div>
+      <h2 class="text-4xl md:text-6xl font-black text-neo-black uppercase">Core Skills</h2>
+      <p class="text-neo-black font-bold mt-6 max-w-xl mx-auto bg-neo-white border-[3px] border-neo-black p-4 shadow-[4px_4px_0px_0px_#111]">
+        六大核心能力，從底層架構到 AI 落地、團隊敏捷開發一手包辦。
       </p>
     </div>
 
     <!-- Skill domains grid -->
-    <div class="grid md:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {skillDomains.map((domain) => (
         <article
           id={`skill-domain-${domain.id}`}
-          class="glass-card p-8 flex flex-col gap-6"
+          class="neo-card p-8 flex flex-col gap-6 bg-neo-white"
           aria-label={domain.title}
         >
           <!-- Domain header -->
           <div>
             <div
-              class={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${domain.color} text-2xl mb-4 shadow-lg`}
+              class={`inline-flex items-center justify-center w-16 h-16 border-[3px] border-neo-black ${domain.color} text-3xl mb-6 shadow-[4px_4px_0px_0px_#111]`}
               aria-hidden="true"
             >
               {domain.icon}
             </div>
-            <h3 class="text-xl font-bold text-white leading-snug">{domain.title}</h3>
-            <p class="text-slate-500 text-sm mt-1">{domain.subtitle}</p>
+            <h3 class="text-2xl font-black text-neo-black leading-snug">{domain.title}</h3>
+            <p class="text-neo-black font-black text-sm mt-2 uppercase">{domain.subtitle}</p>
           </div>
 
+          <!-- Description -->
+          <p class="text-neo-black font-bold text-sm leading-relaxed flex-grow border-l-[4px] border-neo-black pl-4">
+            {domain.description}
+          </p>
+
           <!-- Tech tags -->
-          <div class="flex flex-wrap gap-2" role="list" aria-label={`${domain.title} technologies`}>
+          <div class="flex flex-wrap gap-3 mt-auto" role="list" aria-label={`${domain.title} technologies`}>
             {domain.tags.map((tag) => (
               <span
                 role="listitem"
-                class="px-3 py-1 rounded-full text-xs font-medium
-                       bg-white/5 border border-white/10 text-slate-300
-                       hover:border-brand-400/40 hover:text-white hover:bg-brand-900/30
-                       transition-all duration-200 cursor-default"
+                class="px-3 py-1 text-xs font-black
+                       bg-neo-white border-[2px] border-neo-black text-neo-black
+                       hover:bg-neo-black hover:text-neo-white
+                       transition-colors duration-200 cursor-default shadow-[2px_2px_0px_0px_#111]"
               >
-                {tag}
+                #{tag}
               </span>
             ))}
           </div>

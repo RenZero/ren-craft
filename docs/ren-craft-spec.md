@@ -24,10 +24,10 @@
 
 `tailwind.config.mjs` 定義全站設計代幣：
 
-- **主色 (brand)**：Indigo 系列（`#6366f1` 為主），用於 CTA、強調、border
-- **輔色 (accent)**：Emerald 綠（`#10b981`），用於量化數據 badge、成功狀態
-- **背景 (surface)**：深藍黑系列（`#0a0a12` → `#252542`）
-- **動畫**：`fadeInUp`、`fadeIn`、`slideInLeft`、`glow-pulse` 等 keyframes
+- **風格**：Neobrutalism (新粗野主義)
+- **主色系**：高飽和鮮明色彩（黃 bg-neo-primary、藍 bg-neo-secondary、綠 bg-neo-success、粉 bg-neo-accent、白 bg-neo-white）
+- **核心元素**：純黑字體與邊框（border-neo-black）、強烈實體陰影（shadow-[4px_4px_0px_0px_#111]）
+- **動畫與互動**：卡片點擊或懸停時的實體壓按位移與去色/上色效果
 
 ---
 
@@ -40,7 +40,7 @@ ren-craft/
 ├── public/
 │   ├── favicon.svg              # SVG favicon（Indigo 底 + R 字）
 │   ├── robots.txt               # 開放爬蟲，指向 sitemap
-│   └── photos/                  # 📸 底片照片（直接放入即自動顯示）
+│   └── photos/                  # 📸 Canon 5DMarkIII 攝影作品（直接放入即自動顯示）
 ├── src/
 │   ├── components/              # ⚙️ UI 元件層（純渲染，無狀態，高複用）
 │   │   ├── common/
@@ -55,8 +55,8 @@ ren-craft/
 │   │   │   ├── ExperienceTimeline.astro  # 交替式時間軸
 │   │   │   └── ProjectCard.astro         # 專案卡片（含 Metrics Badge）
 │   │   └── photography/
-│   │       ├── MasonryGrid.astro  # CSS Columns 瀑布流（自動讀 public/photos/）
-│   │       └── PhotoCard.astro    # 照片卡片（hover 標題 overlay）
+│   │       ├── MasonryGrid.astro  # CSS Columns 瀑布流（限制最大 2 欄的大圖展示）
+│   │       └── PhotoCard.astro    # 照片卡片（Neobrutalism 粗框與懸停變彩效果）
 │   ├── content/                 # 📁 數據源層（TypeScript 資料檔）
 │   │   ├── experiences/
 │   │   │   ├── 01-settour.ts    # 東南旅行社 經歷與專案資料
@@ -86,7 +86,7 @@ ren-craft/
 ├── tailwind.config.mjs          # Tailwind 設計系統設定
 ├── tsconfig.json                # TypeScript strict 設定
 └── package.json
-3. 路由架構 (Multi-Page Routing)採用換頁式（MPA） 導覽設計，每個功能區塊為獨立靜態頁面：路由頁面主要元件/關於我Hero.astro/experience工作經歷ExperienceTimeline.astro/skills技能專長CoreSkills.astro/photography攝影藝廊MasonryGrid.astro/contact聯絡我ContactForm.astro/404404 錯誤—4. 核心資料源 Schema 補全此部分補全你 PDF 履歷內所有完整的經歷資料結構，方便前端元件渲染時直接迭代。4.1 東南旅行社經歷數據 (01-settour.ts)TypeScriptimport type { Experience } from '../models/experience.model';
+3. 路由架構 (Multi-Page Routing)採用換頁式（MPA） 導覽設計，每個功能區塊為獨立靜態頁面：路由頁面主要元件/關於我Hero.astro/experience工作經歷ExperienceTimeline.astro/skills技能專長CoreSkills.astro/photography攝影藝廊MasonryGrid.astro/contact聯絡我ContactForm.astro/404404 錯誤—4. 核心資料源 Schema 補全此部分已與 2026.07.15 的 PDF 履歷完全同步對齊。4.1 東南旅行社經歷數據 (01-settour.ts)TypeScriptimport type { Experience } from '../models/experience.model';
 
 export const settourExperience: Experience = {
   id: "settour",
@@ -324,4 +324,4 @@ export const workingHolidayExperiences: WorkingHoliday[] = [
 GitHub Actions (.github/workflows/deploy.yml)
         ↓
   npm ci → npm run build → Vercel Deploy --prod
-項目設定Node 版本18（本機開發）/ 建議 Vercel 設為 20+Build 指令npm run build（Astro SSG → dist/ 靜態檔案）部署目標Vercel（透過 amondnet/vercel-action@v25）所需 SecretsVERCEL_TOKEN / VERCEL_ORG_ID / VERCEL_PROJECT_ID7. 待辦與未來擴充優先度項目說明🔴 高GitHub Secrets完成設定 Vercel 的 Org ID & Project ID🔴 高履歷檔放 public將 RenChen20260708.pdf 放入 public/ 提供直接下載🟡 中攝影照片將你的風景底片照片（如德國周遊、歐洲風光）放入 public/photos/🟢 低語言能力標籤在官網適當處呈現：English (中階)、German (初階)
+項目設定Node 版本18（本機開發）/ 建議 Vercel 設為 20+Build 指令npm run build（Astro SSG → dist/ 靜態檔案）部署目標Vercel（透過 amondnet/vercel-action@v25）所需 SecretsVERCEL_TOKEN / VERCEL_ORG_ID / VERCEL_PROJECT_ID7. 待辦與未來擴充優先度項目說明🔴 高GitHub Secrets完成設定 Vercel 的 Org ID & Project ID🔴 高履歷檔放 public將 RenChen20260708.pdf 放入 public/ 提供直接下載🟢 完攝影照片(已完成) 將 10 張 FB 上的 Canon 5DMarkIII 攝影作品匯入 public/photos/🟢 完個人大頭照(已完成) 已將大頭照加入首頁 Hero 區塊🟢 低語言能力標籤在官網適當處呈現：English (中階)、German (初階)

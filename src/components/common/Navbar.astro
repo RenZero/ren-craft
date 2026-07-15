@@ -15,27 +15,25 @@ function isActive(href: string) {
 }
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-neo-bg border-b-[3px] border-neo-black" id="navbar">
   <div class="container mx-auto px-6 py-4 flex items-center justify-between">
     <!-- Logo / Name -->
-    <a href="/" class="text-lg font-bold tracking-tight group" aria-label="Ren Chen — Home">
-      <span class="gradient-text">Ren Chen</span>
-      <span class="text-slate-500 font-light ml-1 text-sm group-hover:text-brand-400 transition-colors">/厚任</span>
+    <a href="/" class="text-lg font-black tracking-tight group flex items-baseline" aria-label="Ren Chen — Home">
+      <span class="text-neo-black text-xl uppercase">Ren Chen</span>
+      <span class="text-neo-black font-bold ml-1 text-sm bg-neo-success px-1 border border-neo-black">/厚任</span>
     </a>
 
     <!-- Desktop Nav -->
     <nav aria-label="Primary navigation">
-      <ul class="hidden md:flex gap-8 list-none">
+      <ul class="hidden md:flex gap-4 list-none">
         {navLinks.map((link) => (
           <li>
             <a
               href={link.href}
-              class={`text-sm font-medium transition-colors duration-200 relative
-                     after:absolute after:bottom-[-2px] after:left-0 after:h-[2px]
-                     after:bg-brand-400 after:transition-all after:duration-300
+              class={`text-sm font-bold transition-all px-3 py-1 border-[2px]
                      ${isActive(link.href)
-                       ? 'text-white after:w-full'
-                       : 'text-slate-400 hover:text-white after:w-0 hover:after:w-full'
+                       ? 'bg-neo-primary border-neo-black shadow-[2px_2px_0px_0px_#111]'
+                       : 'border-transparent text-neo-black hover:bg-neo-secondary hover:border-neo-black hover:shadow-[2px_2px_0px_0px_#111]'
                      }`}
               aria-current={isActive(link.href) ? "page" : undefined}
             >
@@ -50,11 +48,9 @@ function isActive(href: string) {
     <a
       href="/contact"
       id="nav-cta"
-      class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg
-             bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium
-             transition-all duration-200 hover:shadow-lg hover:shadow-brand-600/30"
+      class="neo-btn hidden md:inline-flex text-sm py-1.5 px-4"
     >
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="mr-2">
         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
         <polyline points="22,6 12,13 2,6"/>
       </svg>
@@ -64,14 +60,14 @@ function isActive(href: string) {
     <!-- Mobile Menu Button -->
     <button
       id="mobile-menu-btn"
-      class="md:hidden text-slate-400 hover:text-white transition-colors"
+      class="md:hidden text-neo-black p-1 border-[2px] border-transparent hover:border-neo-black hover:bg-neo-primary transition-colors"
       aria-label="Toggle mobile menu"
       aria-expanded="false"
     >
-      <svg id="menu-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <svg id="menu-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
         <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
       </svg>
-      <svg id="menu-icon-close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <svg id="menu-icon-close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
         <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
       </svg>
     </button>
@@ -80,19 +76,18 @@ function isActive(href: string) {
   <!-- Mobile Menu -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden glass-card mx-4 mb-4 overflow-hidden"
-    style="border-radius: 12px;"
+    class="hidden md:hidden mx-4 mb-4 overflow-hidden bg-neo-white border-[3px] border-neo-black shadow-[4px_4px_0px_0px_#111]"
   >
     <nav aria-label="Mobile navigation">
-      <ul class="flex flex-col list-none py-2">
+      <ul class="flex flex-col list-none py-2 border-b-[3px] border-neo-black">
         {navLinks.map((link) => (
           <li>
             <a
               href={link.href}
-              class={`block px-6 py-3 text-sm transition-colors
+              class={`block px-6 py-3 text-sm font-bold border-b-[1px] border-neo-black/20 transition-colors
                      ${isActive(link.href)
-                       ? 'text-white bg-white/5 border-l-2 border-brand-400'
-                       : 'text-slate-300 hover:text-white hover:bg-white/5'
+                       ? 'bg-neo-primary text-neo-black'
+                       : 'text-neo-black hover:bg-neo-secondary'
                      }`}
               aria-current={isActive(link.href) ? "page" : undefined}
             >
@@ -100,12 +95,12 @@ function isActive(href: string) {
             </a>
           </li>
         ))}
-        <li class="px-4 py-3">
-          <a href="/contact" class="block text-center py-2.5 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-colors">
-            聯絡我
-          </a>
-        </li>
       </ul>
+      <div class="px-4 py-4 bg-neo-bg">
+        <a href="/contact" class="neo-btn w-full text-center">
+          聯絡我
+        </a>
+      </div>
     </nav>
   </div>
 </header>
@@ -113,10 +108,10 @@ function isActive(href: string) {
 <script>
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar?.classList.add('bg-surface-900/80', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+    if (window.scrollY > 10) {
+      navbar?.classList.add('shadow-[0px_4px_0px_0px_#111]');
     } else {
-      navbar?.classList.remove('bg-surface-900/80', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+      navbar?.classList.remove('shadow-[0px_4px_0px_0px_#111]');
     }
   });
 

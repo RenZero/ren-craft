@@ -9,7 +9,7 @@ const { src, alt, title } = Astro.props;
 ---
 
 <article
-  class="photo-card relative group overflow-hidden rounded-xl cursor-zoom-in"
+  class="photo-card relative group border-[4px] border-neo-black shadow-[8px_8px_0px_0px_#111] overflow-hidden bg-neo-white block transition-all duration-300 transform hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_#111]"
   aria-label={title}
 >
   <img
@@ -17,16 +17,10 @@ const { src, alt, title } = Astro.props;
     alt={alt}
     loading="lazy"
     decoding="async"
-    class="w-full h-auto object-cover block transition-transform duration-500 group-hover:scale-105"
+    class="w-full h-auto object-cover block border-b-[4px] border-neo-black grayscale-[20%] group-hover:grayscale-0 transition-all duration-300"
   />
 
-  <!-- Title overlay on hover -->
-  <div
-    class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent
-           opacity-0 group-hover:opacity-100 transition-opacity duration-300
-           flex items-end p-4"
-    aria-hidden="true"
-  >
-    <p class="text-white text-sm font-semibold drop-shadow">{title}</p>
+  <div class="p-5 bg-neo-white">
+    <p class="text-neo-black text-xl font-black uppercase tracking-wide">{title}</p>
   </div>
 </article>

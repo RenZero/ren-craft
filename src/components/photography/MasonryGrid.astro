@@ -27,32 +27,34 @@ function filenameToTitle(filename: string): string {
 
 <section
   id="photography"
-  class="section"
-  aria-label="Film photography gallery by Ren Chen"
+  class="section bg-neo-bg"
+  aria-label="Photography gallery by Ren Chen"
 >
   <div class="container mx-auto px-6">
     <!-- Section header -->
     <div class="text-center mb-16">
-      <p class="text-brand-400 text-sm font-semibold tracking-widest uppercase mb-3">Visual Stories</p>
-      <h2 class="text-4xl md:text-5xl font-bold text-white">底片攝影藝廊</h2>
-      <p class="text-slate-400 mt-4 max-w-xl mx-auto">
-        用 Leica M6 與底片記錄當下的光影——工程師視角下的另一種系統思維。
+      <div class="inline-block bg-neo-secondary border-[3px] border-neo-black px-4 py-2 mb-6 shadow-[4px_4px_0px_0px_#111] transform -rotate-1">
+        <p class="text-neo-black text-sm font-black tracking-widest uppercase">Visual Stories</p>
+      </div>
+      <h2 class="text-4xl md:text-6xl font-black text-neo-black uppercase">攝影藝廊</h2>
+      <p class="text-neo-black font-bold mt-6 max-w-xl mx-auto bg-neo-white border-[3px] border-neo-black p-4 shadow-[4px_4px_0px_0px_#111]">
+        用 Canon 5DMarkIII 記錄當下的光影——工程師視角下的另一種系統思維。
       </p>
       {photoFiles.length === 0 && (
-        <p class="inline-block mt-4 text-xs text-slate-600 border border-slate-700 rounded-full px-4 py-1.5">
-          將照片放入 <code class="text-slate-400">public/photos/</code> 即可自動顯示
+        <p class="inline-block mt-6 text-sm font-bold text-neo-black border-[2px] border-neo-black bg-neo-primary px-4 py-2 shadow-[2px_2px_0px_0px_#111]">
+          將照片放入 <code class="bg-neo-white px-1">public/photos/</code> 即可自動顯示
         </p>
       )}
     </div>
 
     {photoFiles.length > 0 ? (
       <!-- Masonry Grid：CSS Columns 輕量瀑布流 -->
-      <div class="masonry-grid" role="list" aria-label="Film photography gallery">
+      <div class="masonry-grid" role="list" aria-label="Photography gallery">
         {photoFiles.map((filename) => (
           <div role="listitem" class="masonry-item">
             <PhotoCard
               src={`/photos/${filename}`}
-              alt={`Leica M6 Film Photography by Ren Chen — ${filenameToTitle(filename)}`}
+              alt={`Canon 5DMarkIII Photography by Ren Chen — ${filenameToTitle(filename)}`}
               title={filenameToTitle(filename)}
             />
           </div>
@@ -60,12 +62,12 @@ function filenameToTitle(filename: string): string {
       </div>
     ) : (
       <!-- Empty state -->
-      <div class="flex flex-col items-center justify-center py-32 text-center glass-card mx-auto max-w-md">
-        <div class="text-6xl mb-6" aria-hidden="true">📷</div>
-        <h3 class="text-xl font-semibold text-white mb-3">尚無照片</h3>
-        <p class="text-slate-500 text-sm leading-relaxed">
+      <div class="flex flex-col items-center justify-center py-20 text-center neo-card bg-neo-white mx-auto max-w-md">
+        <div class="text-6xl mb-6 bg-neo-accent border-[3px] border-neo-black w-24 h-24 flex items-center justify-center shadow-[4px_4px_0px_0px_#111] transform rotate-3" aria-hidden="true">📷</div>
+        <h3 class="text-2xl font-black text-neo-black mb-3">尚無照片</h3>
+        <p class="text-neo-black font-bold text-sm leading-relaxed border-[2px] border-neo-black p-3 bg-neo-bg">
           將 JPG / PNG / WebP 照片放入<br/>
-          <code class="text-slate-300 bg-white/5 px-2 py-0.5 rounded mt-1 inline-block">public/photos/</code><br/>
+          <code class="bg-neo-primary border-[2px] border-neo-black px-2 py-0.5 mt-2 inline-block">public/photos/</code><br/>
           重新 build 後即自動顯示
         </p>
       </div>
@@ -76,12 +78,11 @@ function filenameToTitle(filename: string): string {
 <style>
   .masonry-grid {
     columns: 1;
-    column-gap: 1rem;
+    column-gap: 2rem;
   }
-  @media (min-width: 640px)  { .masonry-grid { columns: 2; } }
-  @media (min-width: 1024px) { .masonry-grid { columns: 4; } }
+  @media (min-width: 768px)  { .masonry-grid { columns: 2; } }
   .masonry-item {
     break-inside: avoid;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 </style>

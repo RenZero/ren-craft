@@ -15,20 +15,22 @@ export const workingHolidayExperiences: WorkingHoliday[] = [
     title: "Salesperson",
     period: "2016.03 - 2017.03",
     achievements: [
-      "深度了解歐洲當地資訊產業生態與工作文化。",
-      "兼職紀念品銷售，鍛鍊德語及跨文化溝通能力。",
-      "周遊歐洲多國，進行風景攝影創作，沉澱個人美學與視野。",
+      "了解當地資訊產業",
+      "兼職紀念品銷售",
+      "周遊歐洲",
+      "風景攝影"
     ],
   },
   {
     id: "wh-usa",
-    country: "美國 USA (Chicago)",
-    company: "Six Flags Great America",
+    country: "美國 USA",
+    company: "Six Flags Great America in Chicago",
     title: "Restaurant Staff",
     period: "2008.06 - 2008.10",
     achievements: [
-      "於遊樂園內餐廳 Crazy Buffalo Saloon 擔任餐飲服務人員。",
-      "置身全英語工作環境，有效提升外語實戰表達能力並深度遊歷美國。",
+      "遊樂園內餐廳 Crazy Buffalo Saloon 餐飲服務人員",
+      "練習外語",
+      "遊歷美國"
     ],
   },
 ];
